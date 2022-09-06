@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class IOScanner {
                                     // custom input functions here ->
+
                                     
                                     // some test code for later 
     // public int[] readFiveNums() {
@@ -15,5 +16,5 @@ public class IOScanner {
     //     }
     //     in.close();
     //     return inputNums;
-    // }             
+    // }
 }
