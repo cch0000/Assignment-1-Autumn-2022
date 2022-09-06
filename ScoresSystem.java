@@ -1,4 +1,4 @@
-                                                // compile with javac *.java
+import java.util.Scanner;                                           // compile with javac *.java
                                                 // run with java ScoresSystem.java
 
 public class ScoresSystem {
