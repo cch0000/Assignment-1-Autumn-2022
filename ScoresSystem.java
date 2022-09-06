@@ -18,7 +18,7 @@ public class ScoresSystem {
         System.out.println("\t4. Find the highest score and its position.");
         System.out.println("\t5. Collect hashtags from a post.");
         System.out.println("\t6. To exit.");
-        System.out.println("Type your option:");
+        System.out.print("Type your option: ");
 
 
         option = input.nextInt();
@@ -43,7 +43,7 @@ public class ScoresSystem {
 
                 break;
             case(5):
-
+                DetectHashtags();
                 break;
             case(6):
                 System.out.println("Thank you for using our grading system. Have a nice day!");
@@ -54,6 +54,70 @@ public class ScoresSystem {
         }
 
         input.close();
+    }
+                                                    // Task 5 | detecting hashtags in a string
+    public static void DetectHashtags() {
+                                                    // reading the post from user
+        Scanner input = new Scanner(System.in);
+        System.out.print("Type your post: ");
+        String post = input.nextLine();
+        input.close();
+                                                    // if the post has less than 2 chars,
+                                                    // it doesn't have hashtags
+        if(post.length() < 2) {
+            System.out.println("No hashtags were typed.");
+            return;
+        }
+
+        String finalHashes = "Hashtags found:";
+                                                    // iterating though all chars in the post, searching for '#'                
+        for(int i = 0; i < post.length() - 1; ++i) {
+            String currHash = "";
+                                                    // in case hashtags starts from the beginning of the post
+            if(i == 0) {
+                if(post.charAt(i) == '#' && post.charAt(i + 1) != ' ') {
+                    currHash = "#";
+                    ++i;
+                                                    // go through the hashtag while the space (or the end of the post) is not reached
+                    while(i < post.length()) {
+                        if(i == post.length() - 1 && post.charAt(i) != ' ') {
+                            currHash += post.charAt(i);    
+                        }
+
+                        if(post.charAt(i) == ' ' || i == post.length() - 1) {
+                            finalHashes += " " + currHash;
+                            break;
+                        }
+                        currHash += post.charAt(i);
+                        ++i;
+                    }
+                }
+            }
+                                                    // for all hashtags that don't start from the beginning of the post
+            if(post.charAt(i) == '#' && post.charAt(i + 1) != ' ' && post.charAt(i - 1) == ' ') {
+                currHash = "#";
+                ++i;
+                                                    // go through the hashtag while the space (or the end of the post) is not reached
+                while(i < post.length()) {
+                    if(i == post.length() - 1 && post.charAt(i) != ' ') {
+                        currHash += post.charAt(i);    
+                    }
+
+                    if(post.charAt(i) == ' ' || i == post.length() - 1) {
+                        finalHashes += " " + currHash;
+                        break;
+                    }
+                    currHash += post.charAt(i);
+                    ++i;
+                }
+            }
+        }
+                                                    // output hashtags if found any
+        if(finalHashes == "Hashtags found:") {
+            System.out.println("No hashtags were typed.");
+        } else {
+            System.out.println(finalHashes);
+        }
     }
 
     public static void main(String[] args) {
