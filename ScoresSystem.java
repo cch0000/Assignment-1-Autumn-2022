@@ -22,6 +22,13 @@ public class ScoresSystem {
 
 
         option = input.nextInt();
+                                                        // checking if user's input is between 1 and 6
+                                                        // if not -> read the value again
+        while(option > 6 || option < 1) {
+            System.out.println("Error - Invalid value. Please type between 1 and 6");
+            option = input.nextInt();
+        }
+
         switch(option) {
             case(1):
 
@@ -45,6 +52,8 @@ public class ScoresSystem {
                 System.out.println("Error - Invalid value. Please type between 1 and 6");
                 break;
         }
+
+        input.close();
     }
 
     public static void main(String[] args) {
