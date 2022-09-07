@@ -1,7 +1,11 @@
 import java.util.Scanner;                                           // compile with javac *.java
                                                 // run with java ScoresSystem.java
 
+import javax.management.openmbean.OpenDataException;
+
 public class ScoresSystem {
+                                                // global array for student grades
+    static int[] grades = new int[7];
                                                 // functions here ->
 
     public static void OutputMenu() {                  // outputing the menu
@@ -20,7 +24,6 @@ public class ScoresSystem {
         System.out.println("\t6. To exit.");
         System.out.print("Type your option: ");
 
-
         option = input.nextInt();
                                                         // checking if user's input is between 1 and 6
                                                         // if not -> read the value again
@@ -31,7 +34,7 @@ public class ScoresSystem {
 
         switch(option) {
             case(1):
-
+                collectGrades();
                 break;
             case(2):
 
@@ -61,7 +64,6 @@ public class ScoresSystem {
         Scanner input = new Scanner(System.in);
         System.out.print("Type your post: ");
         String post = input.nextLine();
-        input.close();
                                                     // if the post has less than 2 chars,
                                                     // it doesn't have hashtags
         if(post.length() < 2) {
@@ -118,17 +120,24 @@ public class ScoresSystem {
         } else {
             System.out.println(finalHashes);
         }
+        OutputMenu();
+    }
+
+    public static void collectGrades() {            // Task 1 | read grades from the user
+        IOScanner arrayinput= new IOScanner();
+        grades = arrayinput.readGrades();
+
+        System.out.println("Thank you for your input. Your entered scores are:");
+        for(int i = 0; i < 7; i++) {
+                                                    // if it's the last grade, don't print the comma after
+            System.out.print( i < 6 ? (grades[i] + ", ") : grades[i]);
+        }
+        System.out.print("\n");
+                                                    // call the menu
+        OutputMenu();
     }
 
     public static void main(String[] args) {
-       
-        IOScanner arrayinput= new IOScanner();
-        arrayinput.readGrades();
-        
-
-        OutputMenu();
-                                                // some test code for later
-        // IOScanner in = new IOScanner();
-        // System.out.println(in.readFiveNums()[2]);
+        collectGrades();
     }
 }

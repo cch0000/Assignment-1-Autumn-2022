@@ -30,9 +30,9 @@ public class IOScanner {
 
                  }
 
-        grades[i]= input.nextInt();
+        grades[i - 1]= input.nextInt();
         
-        if (grades[i]>100 || grades[i]<0){
+        if (grades[i - 1]>100 || grades[i - 1]<0){
             System.out.println("Error - Input out of bound. Score can only be between 0  and 100.");
             i--;
         }
@@ -49,7 +49,7 @@ public class IOScanner {
         }
 
 
-        input.close();
+        // input.close();
 
         return grades;
 
