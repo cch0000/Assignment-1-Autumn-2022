@@ -121,6 +121,11 @@ public class ScoresSystem {
     }
 
     public static void main(String[] args) {
+       
+        IOScanner arrayinput= new IOScanner();
+        arrayinput.readGrades();
+        
+
         OutputMenu();
                                                 // some test code for later
         // IOScanner in = new IOScanner();
