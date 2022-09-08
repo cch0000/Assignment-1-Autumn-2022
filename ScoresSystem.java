@@ -1,7 +1,7 @@
+import java.util.Locale;
 import java.util.Scanner;                                           // compile with javac *.java
                                                 // run with java ScoresSystem.java
 
-import javax.management.openmbean.OpenDataException;
 
 public class ScoresSystem {
                                                 // global array for student grades
@@ -37,7 +37,7 @@ public class ScoresSystem {
                 collectGrades();
                 break;
             case(2):
-
+                MeanCalculator();
                 break;
             case(3):
 
@@ -137,7 +137,18 @@ public class ScoresSystem {
         OutputMenu();
     }
 
+public static void MeanCalculator(){    // Task 2 | calculate mean
+        double sum = 0;
+        double mean = 0;
+        for(int i = 0; i < 7; i++){
+            sum = sum + grades[i];
+        }
+    mean = sum / 7.0;
+    System.out.printf("The mean of the numbers is %.2f", mean);
+}
+
     public static void main(String[] args) {
+        Locale.setDefault(Locale.ENGLISH);
         collectGrades();
     }
 }
