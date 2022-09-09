@@ -22,9 +22,10 @@ public class ScoresSystem {
         System.out.println("\t4. Find the highest score and its position.");
         System.out.println("\t5. Collect hashtags from a post.");
         System.out.println("\t6. To exit.");
-        System.out.print("Type your option: ");
+        // System.out.print("Type your option: ");
 
-        option = input.nextInt();
+        // option = input.nextInt();
+        option = IOScanner.readInt("Type your option: ");
                                                         // checking if user's input is between 1 and 6
                                                         // if not -> read the value again
         while(option > 6 || option < 1) {
@@ -124,8 +125,7 @@ public class ScoresSystem {
     }
 
     public static void collectGrades() {            // Task 1 | read grades from the user
-        IOScanner arrayinput= new IOScanner();
-        grades = arrayinput.readGrades();
+        grades = IOScanner.readGrades();
 
         System.out.println("Thank you for your input. Your entered scores are:");
         for(int i = 0; i < 7; i++) {
@@ -146,7 +146,8 @@ public class ScoresSystem {
 
         mean = sum / 7.0;                           //Calculating the mean
 
-        System.out.printf("The mean of the numbers is %.2f", mean);
+        System.out.printf("The mean of the numbers is %.2f\n", mean);
+        OutputMenu();
     }
 
     public static void main(String[] args) {
