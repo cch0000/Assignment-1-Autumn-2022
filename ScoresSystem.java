@@ -137,14 +137,14 @@ public class ScoresSystem {
         OutputMenu();
     }
 
-    public static void MeanCalculator(){               // Task 2 | calculate mean
+    public static void MeanCalculator(){            // Task 2 | calculate mean
         double sum = 0;
         double mean = 0;
-        for(int i = 0; i < 7; i++){                //Adding the numbers in the array
+        for(int i = 0; i < 7; i++){                 //Adding the numbers in the array
             sum = sum + grades[i];
         }
 
-        mean = sum / 7.0;                          //Calculating the mean
+        mean = sum / 7.0;                           //Calculating the mean
 
         System.out.printf("The mean of the numbers is %.2f", mean);
     }
