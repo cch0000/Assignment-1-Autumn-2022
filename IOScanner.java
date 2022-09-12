@@ -5,9 +5,9 @@ import java.util.Scanner;
                                     // Do not create main function here
 
 public class IOScanner {
+    public static Scanner input = new Scanner(System.in);
                         // custom input functions here ->
     public static int[] readGrades(){
-        Scanner input = new Scanner(System.in);
 
         int[] grades; 
         
@@ -38,7 +38,6 @@ public class IOScanner {
         }
 
 
-        // input.close();
 
         return grades;
 
@@ -49,34 +48,30 @@ public class IOScanner {
                                             // input with message for INT
     public static int readInt(String _message) {
         int result = 0;
-        Scanner input = new Scanner(System.in);
 
         System.out.print(_message);
         result = input.nextInt();
-        
-        // input.close();
+        input.nextLine();
+
         return result;
     }
                                             // input with message for DOUBLE
     public static double readDouble(String _message) {
         double result = 0;
-        Scanner input = new Scanner(System.in);
 
         System.out.print(_message);
         result = input.nextDouble();
+        input.nextLine();
         
-        // input.close();
         return result;
     }
                                             // input with message for LINE (STRING)
     public static String readLine(String _message) {
         String result = "";
-        Scanner input = new Scanner(System.in);
 
         System.out.print(_message);
         result = input.nextLine();
         
-        // input.close();
         return result;
     }
 
