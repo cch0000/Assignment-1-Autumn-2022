@@ -3,7 +3,7 @@ import java.util.Scanner;                                           // compile w
                                                 // run with java ScoresSystem.java
 
 
-public class ScoresSystem {
+public class Menu {
                                                 // global array for student grades
     static int[] grades = new int[7];
                                                 // functions here ->
@@ -62,9 +62,7 @@ public class ScoresSystem {
                                                     // Task 5 | detecting hashtags in a string
     public static void DetectHashtags() {
                                                     // reading the post from user
-        Scanner input = new Scanner(System.in);
-        System.out.print("Type your post: ");
-        String post = input.nextLine();
+        String post = IOScanner.readLine("Type your post: ");
                                                     // if the post has less than 2 chars,
                                                     // it doesn't have hashtags
         if(post.length() < 2) {

@@ -16,21 +16,19 @@ public class IOScanner {
 
             switch (i){
 
-                case 1: System.out.print("Enter the score for the 1st student ");
+                case 1: grades[i - 1] = readInt("Enter the score for the 1st student ");
                     break;
 
-                case 2: System.out.print("Enter the score for the 2nd student ");
+                case 2: grades[i - 1] = readInt("Enter the score for the 2nd student ");
                     break;
 
-                case 3: System.out.print("Enter the score for the 3rd student ");
+                case 3: grades[i - 1] = readInt("Enter the score for the 3rd student ");
                     break;
 
-                default: System.out.print("Enter the score for the " + i + "th student ");
+                default: grades[i - 1] = readInt("Enter the score for the " + i + "th student ");
                     break;
 
                  }
-
-            grades[i - 1]= input.nextInt();
             
             if (grades[i - 1]>100 || grades[i - 1]<0){
                 System.out.println("Error - Input out of bound. Score can only be between 0 and 100.");
