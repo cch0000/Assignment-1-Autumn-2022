@@ -44,7 +44,7 @@ public class Menu {
 
                 break;
             case(4):
-
+                bestStudent();
                 break;
             case(5):
                 DetectHashtags();
@@ -141,10 +141,42 @@ public class Menu {
         for(int i = 0; i < 7; i++){                 //Adding the numbers in the array
             sum = sum + grades[i];
         }
-
-        mean = sum / 7.0;                           //Calculating the mean
+                                                    //Calculating the mean
+        mean = sum / 7.0;                           
 
         System.out.printf("The mean of the numbers is %.2f\n", mean);
+        OutputMenu();
+    }
+                                                    //Task 4
+    public static void bestStudent(){
+        String ordinal = "";
+        int highestGrade = 0;
+        int position = 0;
+                                                    //Determining the highest score
+        for(int i = 0; i < 7; i++){
+
+            if(grades[i] > highestGrade){
+                highestGrade = grades[i];
+                position = i + 1;
+            }
+
+        }
+                                                    //Making the position an ordinal number
+        switch(position){                       
+            case(1): ordinal = "st";
+            break;
+
+            case(2): ordinal = "nd";
+            break;
+
+            case(3): ordinal = "rd";
+            break;
+
+            default: ordinal = "th";
+        }
+
+        System.out.println("The highest score is " + highestGrade + " and belongs to the " + position + ordinal + " student");
+
         OutputMenu();
     }
 
