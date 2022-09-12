@@ -13,7 +13,6 @@ public class Menu {
         After that, you present the menu below. Typing the number of the option should take the user to the corresponding Task described above. After completing the corresponding task, the user should return to the Main Menu.*/
 
         int option = 0;
-        Scanner input = new Scanner(System.in);
 
         System.out.println("Welcome to the menu. Choose one of the options below:");
         System.out.println("\t1. Register new scores for students.");
@@ -29,8 +28,7 @@ public class Menu {
                                                         // checking if user's input is between 1 and 6
                                                         // if not -> read the value again
         while(option > 6 || option < 1) {
-            System.out.println("Error - Invalid value. Please type between 1 and 6");
-            option = input.nextInt();
+            option = IOScanner.readInt("Error - Invalid value. Please type between 1 and 6\n");
         }
 
         switch(option) {
@@ -57,7 +55,6 @@ public class Menu {
                 break;
         }
 
-        input.close();
     }
                                                     // Task 5 | detecting hashtags in a string
     public static void DetectHashtags() {
