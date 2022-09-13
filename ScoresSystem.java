@@ -41,7 +41,7 @@ public class ScoresSystem {
                 MeanCalculator();
                 break;
             case(3):
-
+                highestandLowest();
                 break;
             case(4):
 
@@ -154,4 +154,54 @@ public class ScoresSystem {
         Locale.setDefault(Locale.ENGLISH);
         collectGrades();
     }
+
+    //task 3
+    public static void highestandLowest(){
+
+        int highestScore= 0;  
+        int lowestScore= 100;
+        int secondHighest= 0;
+        int secondLowest= 100;
+        
+        for(int i=0; i < grades.length; i++){     
+            if (grades[i] > highestScore){          
+                secondHighest= highestScore;        
+                highestScore= grades[i];
+            }
+            else if (grades[i] > secondHighest){
+                secondHighest= grades[i];                        
+            }
+            if (grades[i] < lowestScore){
+                secondLowest=lowestScore;
+                lowestScore=grades[i];
+            }
+            else if (grades[i] < secondLowest){
+                secondLowest=grades[i];
+            } 
+        }
+            
+        System.out.println("The two lowest scores provided are " + lowestScore + ", and " + secondLowest);
+        System.out.println("The two highest socres provided are " + highestScore + ", and " + secondHighest);
+
+
+    }
+
+
+
 }
+
+        
+
+
+  
+
+        
+        
+
+             
+
+
+
+
+
+

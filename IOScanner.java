@@ -8,8 +8,8 @@ public class IOScanner {
                         // custom input functions here ->
     public static int[] readGrades(){
         Scanner input = new Scanner(System.in);
-
         int[] grades; 
+
         
         grades= new int[7];
         for(int i =1; i<=7; i++) {
@@ -82,4 +82,9 @@ public class IOScanner {
         return result;
     }
 
+ 
+
+
+
+    
 }
