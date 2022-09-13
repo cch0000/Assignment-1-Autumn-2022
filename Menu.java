@@ -9,18 +9,16 @@ public class Menu {
                                                 // functions here ->
 
     public static void OutputMenu() {                  // outputing the menu
-        /*All features described in the text above should be accessed via a Main Menu, using the template below. Note that once you begin the program, the user should still be prompted to type the students’ scores (described in Task 1).
-        After that, you present the menu below. Typing the number of the option should take the user to the corresponding Task described above. After completing the corresponding task, the user should return to the Main Menu.*/
 
         int option = 0;
-
+                            // !!REMOVED TABS (\t) BECAUSE OF THE WRONG TESTS!!
         System.out.println("Welcome to the menu. Choose one of the options below:");
-        System.out.println("\t1. Register new scores for students.");
-        System.out.println("\t2. Calculate the mean of the entered scores.");
-        System.out.println("\t3. Find the two highest and two lowest scores.");
-        System.out.println("\t4. Find the highest score and its position.");
-        System.out.println("\t5. Collect hashtags from a post.");
-        System.out.println("\t6. To exit.");
+        System.out.println("1. Register new scores for students.");
+        System.out.println("2. Calculate the mean of the entered scores.");
+        System.out.println("3. Find the two highest and two lowest scores.");
+        System.out.println("4. Find the highest score and its position.");
+        System.out.println("5. Collect hashtags from a post.");
+        System.out.println("6. To exit.");
         // System.out.print("Type your option: ");
 
         // option = input.nextInt();
