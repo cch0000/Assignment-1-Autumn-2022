@@ -17,4 +17,4 @@ Task6: Carlos Campos Herrera / Andrii Demchenko
 
 Task7: Andrii Demchenko / Marcelo Santibáñez
 
-Task8: all team
+Task8: Andrii Demchenko
