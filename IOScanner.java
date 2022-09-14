@@ -10,6 +10,7 @@ public class IOScanner {
     public static int[] readGrades(){
 
         int[] grades; 
+
         
         grades= new int[7];
         for(int i =1; i<=7; i++) {
@@ -75,4 +76,9 @@ public class IOScanner {
         return result;
     }
 
+ 
+
+
+
+    
 }
