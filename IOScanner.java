@@ -5,9 +5,10 @@ import java.util.Scanner;
                                     // Do not create main function here
 
 public class IOScanner {
+    public static Scanner input = new Scanner(System.in);
                         // custom input functions here ->
     public static int[] readGrades(){
-        Scanner input = new Scanner(System.in);
+
         int[] grades; 
 
         
@@ -16,21 +17,19 @@ public class IOScanner {
 
             switch (i){
 
-                case 1: System.out.print("Enter the score for the 1st student ");
+                case 1: grades[i - 1] = readInt("Enter the score for the 1st student ");
                     break;
 
-                case 2: System.out.print("Enter the score for the 2nd student ");
+                case 2: grades[i - 1] = readInt("Enter the score for the 2nd student ");
                     break;
 
-                case 3: System.out.print("Enter the score for the 3rd student ");
+                case 3: grades[i - 1] = readInt("Enter the score for the 3rd student ");
                     break;
 
-                default: System.out.print("Enter the score for the " + i + "th student ");
+                default: grades[i - 1] = readInt("Enter the score for the " + i + "th student ");
                     break;
 
                  }
-
-            grades[i - 1]= input.nextInt();
             
             if (grades[i - 1]>100 || grades[i - 1]<0){
                 System.out.println("Error - Input out of bound. Score can only be between 0 and 100.");
@@ -40,7 +39,6 @@ public class IOScanner {
         }
 
 
-        // input.close();
 
         return grades;
 
@@ -51,34 +49,30 @@ public class IOScanner {
                                             // input with message for INT
     public static int readInt(String _message) {
         int result = 0;
-        Scanner input = new Scanner(System.in);
 
         System.out.print(_message);
         result = input.nextInt();
-        
-        // input.close();
+        input.nextLine();
+
         return result;
     }
                                             // input with message for DOUBLE
     public static double readDouble(String _message) {
         double result = 0;
-        Scanner input = new Scanner(System.in);
 
         System.out.print(_message);
         result = input.nextDouble();
+        input.nextLine();
         
-        // input.close();
         return result;
     }
                                             // input with message for LINE (STRING)
     public static String readLine(String _message) {
         String result = "";
-        Scanner input = new Scanner(System.in);
 
         System.out.print(_message);
         result = input.nextLine();
         
-        // input.close();
         return result;
     }
 

@@ -3,25 +3,22 @@ import java.util.Scanner;                                           // compile w
                                                 // run with java ScoresSystem.java
 
 
-public class ScoresSystem {
+public class Menu {
                                                 // global array for student grades
     static int[] grades = new int[7];
                                                 // functions here ->
 
     public static void OutputMenu() {                  // outputing the menu
-        /*All features described in the text above should be accessed via a Main Menu, using the template below. Note that once you begin the program, the user should still be prompted to type the students’ scores (described in Task 1).
-        After that, you present the menu below. Typing the number of the option should take the user to the corresponding Task described above. After completing the corresponding task, the user should return to the Main Menu.*/
 
         int option = 0;
-        Scanner input = new Scanner(System.in);
-
+                            // !!REMOVED TABS (\t) BECAUSE OF THE WRONG TESTS!!
         System.out.println("Welcome to the menu. Choose one of the options below:");
-        System.out.println("\t1. Register new scores for students.");
-        System.out.println("\t2. Calculate the mean of the entered scores.");
-        System.out.println("\t3. Find the two highest and two lowest scores.");
-        System.out.println("\t4. Find the highest score and its position.");
-        System.out.println("\t5. Collect hashtags from a post.");
-        System.out.println("\t6. To exit.");
+        System.out.println("1. Register new scores for students.");
+        System.out.println("2. Calculate the mean of the entered scores.");
+        System.out.println("3. Find the two highest and two lowest scores.");
+        System.out.println("4. Find the highest score and its position.");
+        System.out.println("5. Collect hashtags from a post.");
+        System.out.println("6. To exit.");
         // System.out.print("Type your option: ");
 
         // option = input.nextInt();
@@ -29,8 +26,7 @@ public class ScoresSystem {
                                                         // checking if user's input is between 1 and 6
                                                         // if not -> read the value again
         while(option > 6 || option < 1) {
-            System.out.println("Error - Invalid value. Please type between 1 and 6");
-            option = input.nextInt();
+            option = IOScanner.readInt("Error - Invalid value. Please type between 1 and 6\n");
         }
 
         switch(option) {
@@ -44,7 +40,7 @@ public class ScoresSystem {
                 highestandLowest();
                 break;
             case(4):
-
+                bestStudent();
                 break;
             case(5):
                 DetectHashtags();
@@ -57,14 +53,11 @@ public class ScoresSystem {
                 break;
         }
 
-        input.close();
     }
                                                     // Task 5 | detecting hashtags in a string
     public static void DetectHashtags() {
                                                     // reading the post from user
-        Scanner input = new Scanner(System.in);
-        System.out.print("Type your post: ");
-        String post = input.nextLine();
+        String post = IOScanner.readLine("Type your post: ");
                                                     // if the post has less than 2 chars,
                                                     // it doesn't have hashtags
         if(post.length() < 2) {
@@ -143,16 +136,43 @@ public class ScoresSystem {
         for(int i = 0; i < 7; i++){                 //Adding the numbers in the array
             sum = sum + grades[i];
         }
-
-        mean = sum / 7.0;                           //Calculating the mean
+                                                    //Calculating the mean
+        mean = sum / 7.0;                           
 
         System.out.printf("The mean of the numbers is %.2f\n", mean);
         OutputMenu();
     }
+                                                    //Task 4
+    public static void bestStudent(){
+        String ordinal = "";
+        int highestGrade = 0;
+        int position = 0;
+                                                    //Determining the highest score
+        for(int i = 0; i < 7; i++){
 
-    public static void main(String[] args) {
-        Locale.setDefault(Locale.ENGLISH);
-        collectGrades();
+            if(grades[i] > highestGrade){
+                highestGrade = grades[i];
+                position = i + 1;
+            }
+
+        }
+                                                    //Making the position an ordinal number
+        switch(position){                       
+            case(1): ordinal = "st";
+            break;
+
+            case(2): ordinal = "nd";
+            break;
+
+            case(3): ordinal = "rd";
+            break;
+
+            default: ordinal = "th";
+        }
+
+        System.out.println("The highest score is " + highestGrade + " and belongs to the " + position + ordinal + " student");
+
+        OutputMenu();
     }
 
     //task 3
@@ -186,6 +206,10 @@ public class ScoresSystem {
 
     }
 
+    public static void main(String[] args) {
+        Locale.setDefault(Locale.ENGLISH);
+        collectGrades();
+    }
 
 
 }
